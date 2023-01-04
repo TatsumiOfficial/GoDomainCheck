@@ -6,7 +6,7 @@ Skrip ini akan melakukan pencarian alamat IP dari sejumlah domain yang diberikan
 Untuk menjalankan skrip ini, pastikan terlebih dahulu Anda sudah memasang module fs dan dns dengan perintah berikut:
 
 1. npm install fs dns
-2. node dns-lookup.js <nama_file>
+2. node dns.js <nama_file>
 
 Di mana <nama_file> adalah nama file yang berisi daftar domain yang akan dicari alamat IP-nya (satu domain per baris).
 Hasil pencarian akan ditampilkan ke console dan disimpan ke dalam file results.txt.
