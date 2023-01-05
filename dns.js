@@ -12,7 +12,7 @@ fs.readFile(file, 'utf8', async (err, data) => {
   const domains = data.split('\n');
   const results = [];
 
-  // Save the results to a file before performing the domain lookups
+
   fs.writeFile('results.txt', '', 'utf8', (err) => {
     if (err) {
       console.error(`Error writing to file: ${err.message}`);
@@ -22,7 +22,7 @@ fs.readFile(file, 'utf8', async (err, data) => {
 
   for (const domain of domains) {
     try {
-      // Set a timeout of 10 seconds for the DNS lookup
+
       const address = await Promise.race([
         new Promise((resolve, reject) => {
           dns.lookup(domain, (err, address) => {
@@ -42,7 +42,7 @@ fs.readFile(file, 'utf8', async (err, data) => {
       console.log(`IP address for "${domain}": ${address}`);
       results.push(`${address}`);
 
-      // Append the result to the file after each successful lookup
+
       fs.appendFile('results.txt', `${address}\n`, 'utf8', (err) => {
         if (err) {
           console.error(`Error writing to file: ${err.message}`);
@@ -50,7 +50,7 @@ fs.readFile(file, 'utf8', async (err, data) => {
       });
     } catch (err) {
       console.error(`Error resolving domain "${domain}": ${err.message}`);
-      // Skip this domain and continue to the next one
+
       continue;
     }
   }
